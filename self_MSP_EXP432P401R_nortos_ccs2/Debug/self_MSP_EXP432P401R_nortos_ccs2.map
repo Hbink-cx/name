@@ -1,0 +1,665 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Sat Aug  5 19:46:28 2023
+
+OUTPUT FILE NAME:   <self_MSP_EXP432P401R_nortos_ccs2.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000028d5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  00002de4  0003d21c  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  000006f9  0000f907  RW X
+  SRAM_DATA             20000000   00010000  000006f9  0000f907  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00002de8   00002de8    r-x
+  00000000    00000000    000000e4   000000e4    r-- .intvecs
+  000000e4    000000e4    00002c68   00002c68    r-x .text
+  00002d4c    00002d4c    00000058   00000058    r-- .const
+  00002da8    00002da8    00000040   00000040    r-- .cinit
+20000000    20000000    000004f9   00000000    rw-
+  20000000    20000000    000004d0   00000000    rw- .bss
+  200004d0    200004d0    00000029   00000000    rw- .data
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000e4     
+                  00000000    000000e4     startup_msp432p401r_ccs.obj (.intvecs:retain)
+
+.text      0    000000e4    00002c68     
+                  000000e4    000004a8     getAngle.obj (.text:recieveCoordinateData)
+                  0000058c    0000035c     main.obj (.text:main)
+                  000008e8    00000224     motor.obj (.text:TA3_N_IRQHandler)
+                  00000b0c    000001e8     uart_to_pc.obj (.text:inituart_to_pc)
+                  00000cf4    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.asm.obj (.text)
+                  00000eaa    00000002     startup_msp432p401r_ccs.obj (.text:Default_Handler)
+                  00000eac    00000184     motor.obj (.text:TA2_0_IRQHandler)
+                  00001030    00000144     msp432p4xx_driverlib.lib : timer_a.o (.text:privateTimer_AProcessClockSourceDivider)
+                  00001174    00000140     getAngle.obj (.text:recieveDataFromJY901S)
+                  000012b4    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.asm.obj (.text)
+                  000013ea    00000002     --HOLE-- [fill = 0]
+                  000013ec    0000011c     msp432p4xx_driverlib.lib : uart.o (.text:UART_initModule)
+                  00001508    00000104                              : cs.o (.text:_CSComputeCLKFrequency)
+                  0000160c    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.asm.obj (.text)
+                  00001708    000000f8     msp432p4xx_driverlib.lib : cs.o (.text:CS_getDCOFrequency)
+                  00001800    000000ec     oled.obj (.text:OLED_Init)
+                  000018ec    000000e4     msp432p4xx_driverlib.lib : cs.o (.text:CS_startHFXTWithTimeout)
+                  000019d0    000000e4     timA.obj (.text:TA2_N_IRQHandler)
+                  00001ab4    000000e0     msp432p4xx_driverlib.lib : cs.o (.text:CS_startLFXTWithTimeout)
+                  00001b94    000000dc                              : cs.o (.text:_CSGetHFXTFrequency)
+                  00001c70    000000c4     motor.obj (.text:TA3_0_IRQHandler)
+                  00001d34    000000a4     sysinti.obj (.text:SysInit)
+                  00001dd8    000000a4     Tim32.obj (.text:T32_INT1_IRQHandler)
+                  00001e7c    0000009c     pid.obj (.text:PID_init)
+                  00001f18    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00001fb4    00000094     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getTLVInfo)
+                  00002048    00000094     calibration_angle.obj (.text:calibration_angle_init)
+                  000020dc    0000008c     calibration_angle.obj (.text:PORT1_IRQHandler)
+                  00002168    00000084     motor.obj (.text:motor_pwm_init)
+                  000021ec    0000007c     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetDOCFrequency)
+                  00002268    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  000022e2    00000002     --HOLE-- [fill = 0]
+                  000022e4    00000078     oled.obj (.text:Send_Byte)
+                  0000235c    00000078     system_msp432p401r.obj (.text:SystemInit)
+                  000023d4    00000074     msp432p4xx_driverlib.lib : timer_a.o (.text:Timer_A_generatePWM)
+                  00002448    0000006e     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tos_t2.asm.obj (.text)
+                  000024b6    00000002     --HOLE-- [fill = 0]
+                  000024b8    0000006c     go_to_center.obj (.text:go_to_center_init)
+                  00002524    0000006a     oled.obj (.text:OLED_Clear)
+                  0000258e    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000025f6    00000062     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetDividerValue)
+                  00002658    00000060     Tim32.obj (.text:Tim32_0_Int_Init)
+                  000026b8    00000058     delay.obj (.text:delay_us)
+                  00002710    00000048     duoji.obj (.text:duoji_init)
+                  00002758    00000048     duoji.obj (.text:duoji_init_2)
+                  000027a0    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000027e4    00000042     oled.obj (.text:OLED_WR_Byte)
+                  00002826    00000002     --HOLE-- [fill = 0]
+                  00002828    00000040     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setAsOutputPin)
+                  00002868    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.asm.obj (.text)
+                  000028a0    00000034     led.obj (.text:LED_Init)
+                  000028d4    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00002908    00000030     msp432p4xx_driverlib.lib : cs.o (.text:CS_clearInterruptFlag)
+                  00002938    00000030                              : gpio.o (.text:GPIO_getInputPinValue)
+                  00002968    00000030     oled.obj (.text:I2C_Start)
+                  00002998    00000030     msp432p4xx_driverlib.lib : uart.o (.text:UART_receiveData)
+                  000029c8    0000002e     motor.obj (.text:motor_init)
+                  000029f6    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.asm.obj (.text)
+                  00002a24    0000002c     timA.obj (.text:TA0_0_IRQHandler)
+                  00002a50    00000028     msp432p4xx_driverlib.lib : cs.o (.text:CS_getMCLK)
+                  00002a78    00000028                              : gpio.o (.text:GPIO_setOutputHighOnPin)
+                  00002aa0    00000028                              : gpio.o (.text:GPIO_setOutputLowOnPin)
+                  00002ac8    00000028     delay.obj (.text:delay_init)
+                  00002af0    00000024     oled.obj (.text:I2C_SW_Configuration)
+                  00002b14    00000024     oled.obj (.text:I2C_Stop)
+                  00002b38    00000024     oled.obj (.text:I2C_WaitAck)
+                  00002b5c    00000022     msp432p4xx_driverlib.lib : timer_a.o (.text:Timer_A_getCaptureCompareCount)
+                  00002b7e    00000002     --HOLE-- [fill = 0]
+                  00002b80    00000020                              : cs.o (.text:CS_setExternalClockSourceFrequency)
+                  00002ba0    00000020     uart_to_pc.obj (.text:EUSCIA1_IRQHandler)
+                  00002bc0    00000020     uart_to_pc.obj (.text:EUSCIA2_IRQHandler)
+                  00002be0    0000001e     delay.obj (.text:delay_ms)
+                  00002bfe    0000001e     delay.obj (.text:delay_s)
+                  00002c1c    0000001c     uart_to_pc.obj (.text:EUSCIA3_IRQHandler)
+                  00002c38    00000018     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_disableNMISource)
+                  00002c50    00000018                              : sysctl_a.o (.text:SysCtl_A_enableNMISource)
+                  00002c68    00000018     Tim32.obj (.text:T32_INT2_IRQHandler)
+                  00002c80    00000016     msp432p4xx_driverlib.lib : uart.o (.text:UART_clearInterruptFlag)
+                  00002c96    00000012                              : cs.o (.text:CS_startHFXT)
+                  00002ca8    00000010     uart_to_pc.obj (.text:EUSCIA0_IRQHandler)
+                  00002cb8    00000010     led.obj (.text:LED_G_Tog)
+                  00002cc8    00000010     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getNMISourceStatus)
+                  00002cd8    0000000e                              : cs.o (.text:CS_startLFXT)
+                  00002ce6    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00002cf4    0000000c     led.obj (.text:LED_B_Off)
+                  00002d00    0000000c     led.obj (.text:LED_G_Off)
+                  00002d0c    0000000c     led.obj (.text:LED_RED_Off)
+                  00002d18    0000000c     led.obj (.text:LED_R_Off)
+                  00002d24    0000000c     startup_msp432p401r_ccs.obj (.text:Reset_Handler)
+                  00002d30    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  00002d3c    00000008     calibration_angle.obj (.text:get_calibration_info)
+                  00002d44    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00002d48    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00002d4c    00000058     
+                  00002d4c    00000030     msp432p4xx_driverlib.lib : gpio.o (.const:GPIO_PORT_TO_BASE)
+                  00002d7c    00000028     uart_to_pc.obj (.const:uartConfig)
+
+.cinit     0    00002da8    00000040     
+                  00002da8    00000017     (.cinit..data.load) [load image, compression = lzss]
+                  00002dbf    00000001     --HOLE-- [fill = 0]
+                  00002dc0    0000000c     (__TI_handler_table)
+                  00002dcc    00000004     --HOLE-- [fill = 0]
+                  00002dd0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002dd8    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.bss       0    20000000    000004d0     UNINITIALIZED
+                  20000000    00000208     (.common:motor)
+                  20000208    00000108     (.common:AngleDataBuf2)
+                  20000310    000000a8     (.common:coordinate_t)
+                  200003b8    00000084     (.common:CoordinateData)
+                  2000043c    00000004     (.common:Angle)
+                  20000440    00000050     (.common:calibration_init_t)
+                  20000490    00000020     (.common:FnValue)
+                  200004b0    00000008     msp432p4xx_driverlib.lib : cs.o (.bss)
+                  200004b8    00000004     (.common:Angle2)
+                  200004bc    00000004     (.common:buf_count2)
+                  200004c0    00000004     (.common:buf_count3)
+                  200004c4    00000004     (.common:count_32)
+                  200004c8    00000004     (.common:key)
+                  200004cc    00000002     (.common:CenterCoordinatex)
+                  200004ce    00000002     (.common:CenterCoordinatey)
+
+.data      0    200004d0    00000029     UNINITIALIZED
+                  200004d0    00000018     go_to_center.obj (.data:duojipid_1)
+                  200004e8    00000008     getAngle.obj (.data)
+                  200004f0    00000004     calibration_angle.obj (.data)
+                  200004f4    00000004     timA.obj (.data)
+                  200004f8    00000001     delay.obj (.data)
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fe04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                        code    ro data   rw data
+       ------                        ----    -------   -------
+    .\
+       main.obj                      860     0         16     
+       system_msp432p401r.obj        120     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        980     0         16     
+                                                              
+    .\Communication\
+       uart_to_pc.obj                596     40        0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        596     40        0      
+                                                              
+    .\Hardware\
+       Tim32.obj                     284     0         0      
+       timA.obj                      272     0         8      
+       led.obj                       116     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        672     0         8      
+                                                              
+    .\Question\
+       go_to_center.obj              108     0         384    
+       calibration_angle.obj         296     0         168    
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        404     0         552    
+                                                              
+    .\System\
+       delay.obj                     188     0         2      
+       sysinti.obj                   164     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        352     0         2      
+                                                              
+    .\algorithm\
+       pid.obj                       156     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        156     0         0      
+                                                              
+    .\ccs\
+       startup_msp432p401r_ccs.obj   14      228       0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        14      228       0      
+                                                              
+    .\external_devices\
+       getAngle.obj                  1512    0         912    
+       motor.obj                     1310    0         1040   
+       oled.obj                      684     0         0      
+       duoji.obj                     144     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        3650    0         1952   
+                                                              
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
+       cs.o                          1554    0         16     
+       timer_a.o                     474     0         0      
+       uart.o                        354     0         0      
+       gpio.o                        192     48        0      
+       sysctl_a.o                    212     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        2786    48        16     
+                                                              
+    C:\ti\ccs1230\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_add_t2.asm.obj             438     0         0      
+       fd_div_t2.asm.obj             310     0         0      
+       fd_mul_t2.asm.obj             252     0         0      
+       memcpy_t2.asm.obj             156     0         0      
+       memset_t2.asm.obj             122     0         0      
+       fd_tos_t2.asm.obj             110     0         0      
+       copy_decompress_lzss.c.obj    104     0         0      
+       autoinit.c.obj                68      0         0      
+       fs_tod_t2.asm.obj             56      0         0      
+       boot_cortex_m.c.obj           52      0         0      
+       i_tofd_t2.asm.obj             46      0         0      
+       copy_decompress_none.c.obj    14      0         0      
+       copy_zero_init.c.obj          12      0         0      
+       exit.c.obj                    4       0         0      
+       pre_init.c.obj                4       0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        1748    0         0      
+                                                              
+       Stack:                        0       0         1024   
+       Linker Generated:             0       59        0      
+    +--+-----------------------------+-------+---------+---------+
+       Grand Total:                  11358   375       3570   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002dd8 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002da8, load size=00000017 bytes, run addr=200004d0, run size=00000029 bytes, compression=lzss
+	.bss: load addr=00002dd0, load size=00000008 bytes, run addr=20000000, run size=000004d0 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002dc0 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                              
+-------   ----                              
+00000eab  ADC14_IRQHandler                  
+00000eab  AES256_IRQHandler                 
+2000043c  Angle                             
+200004b8  Angle2                            
+20000208  AngleDataBuf2                     
+00000eab  BusFault_Handler                  
+00002d49  C$$EXIT                           
+00000eab  COMP_E0_IRQHandler                
+00000eab  COMP_E1_IRQHandler                
+00000eab  CS_IRQHandler                     
+00002909  CS_clearInterruptFlag             
+00001709  CS_getDCOFrequency                
+00002a51  CS_getMCLK                        
+00002b81  CS_setExternalClockSourceFrequency
+00002c97  CS_startHFXT                      
+000018ed  CS_startHFXTWithTimeout           
+00002cd9  CS_startLFXT                      
+00001ab5  CS_startLFXTWithTimeout           
+200004cc  CenterCoordinatex                 
+200004ce  CenterCoordinatey                 
+200003b8  CoordinateData                    
+200004e8  Coordinatex                       
+200004ec  Coordinatey                       
+00000eab  DMA_ERR_IRQHandler                
+00000eab  DMA_INT0_IRQHandler               
+00000eab  DMA_INT1_IRQHandler               
+00000eab  DMA_INT2_IRQHandler               
+00000eab  DMA_INT3_IRQHandler               
+00000eab  DebugMon_Handler                  
+00000eab  Default_Handler                   
+00002ca9  EUSCIA0_IRQHandler                
+00002ca9  EUSCIA0_IRQHandler                
+00002ba1  EUSCIA1_IRQHandler                
+00002ba1  EUSCIA1_IRQHandler                
+00002bc1  EUSCIA2_IRQHandler                
+00002bc1  EUSCIA2_IRQHandler                
+00002c1d  EUSCIA3_IRQHandler                
+00002c1d  EUSCIA3_IRQHandler                
+00000eab  EUSCIB0_IRQHandler                
+00000eab  EUSCIB1_IRQHandler                
+00000eab  EUSCIB2_IRQHandler                
+00000eab  EUSCIB3_IRQHandler                
+00000eab  FLCTL_IRQHandler                  
+00000eab  FPU_IRQHandler                    
+20000490  FnValue                           
+00002939  GPIO_getInputPinValue             
+00002829  GPIO_setAsOutputPin               
+00002a79  GPIO_setOutputHighOnPin           
+00002aa1  GPIO_setOutputLowOnPin            
+00000eab  HardFault_Handler                 
+00002af1  I2C_SW_Configuration              
+00002969  I2C_Start                         
+00002b15  I2C_Stop                          
+00002b39  I2C_WaitAck                       
+00002cf5  LED_B_Off                         
+00002d01  LED_G_Off                         
+00002cb9  LED_G_Tog                         
+000028a1  LED_Init                          
+00002d0d  LED_RED_Off                       
+00002d19  LED_R_Off                         
+00000eab  MemManage_Handler                 
+00000eab  NMI_Handler                       
+00002525  OLED_Clear                        
+00001801  OLED_Init                         
+000027e5  OLED_WR_Byte                      
+00000eab  PCM_IRQHandler                    
+00001e7d  PID_init                          
+000020dd  PORT1_IRQHandler                  
+000020dd  PORT1_IRQHandler                  
+00000eab  PORT2_IRQHandler                  
+00000eab  PORT3_IRQHandler                  
+00000eab  PORT4_IRQHandler                  
+00000eab  PORT5_IRQHandler                  
+00000eab  PORT6_IRQHandler                  
+00000eab  PSS_IRQHandler                    
+00000eab  PendSV_Handler                    
+00000eab  RTC_C_IRQHandler                  
+00002d25  Reset_Handler                     
+00000eab  SVC_Handler                       
+000022e5  Send_Byte                         
+00002c39  SysCtl_A_disableNMISource         
+00002c51  SysCtl_A_enableNMISource          
+00002cc9  SysCtl_A_getNMISourceStatus       
+00001fb5  SysCtl_A_getTLVInfo               
+00001d35  SysInit                           
+00000eab  SysTick_Handler                   
+0000235d  SystemInit                        
+00001dd9  T32_INT1_IRQHandler               
+00001dd9  T32_INT1_IRQHandler               
+00002c69  T32_INT2_IRQHandler               
+00002c69  T32_INT2_IRQHandler               
+00000eab  T32_INTC_IRQHandler               
+00002a25  TA0_0_IRQHandler                  
+00002a25  TA0_0_IRQHandler                  
+00000eab  TA0_N_IRQHandler                  
+00000eab  TA1_0_IRQHandler                  
+00000eab  TA1_N_IRQHandler                  
+00000ead  TA2_0_IRQHandler                  
+00000ead  TA2_0_IRQHandler                  
+000019d1  TA2_N_IRQHandler                  
+000019d1  TA2_N_IRQHandler                  
+00001c71  TA3_0_IRQHandler                  
+00001c71  TA3_0_IRQHandler                  
+000008e9  TA3_N_IRQHandler                  
+000008e9  TA3_N_IRQHandler                  
+200004f4  TIMA2_CAP_STA                     
+200004f6  TIMA2_CAP_VAL                     
+00002659  Tim32_0_Int_Init                  
+000023d5  Timer_A_generatePWM               
+00002b5d  Timer_A_getCaptureCompareCount    
+00002c81  UART_clearInterruptFlag           
+000013ed  UART_initModule                   
+00002999  UART_receiveData                  
+00000eab  UsageFault_Handler                
+4000480c  WDTCTL_SYM                        
+00000eab  WDT_A_IRQHandler                  
+20010000  __STACK_END                       
+00000200  __STACK_SIZE                      
+00002dd8  __TI_CINIT_Base                   
+00002de8  __TI_CINIT_Limit                  
+00002dc0  __TI_Handler_Table_Base           
+00002dcc  __TI_Handler_Table_Limit          
+000027a1  __TI_auto_init_nobinit_nopinit    
+0000258f  __TI_decompress_lzss              
+00002ce7  __TI_decompress_none              
+ffffffff  __TI_pprof_out_hndl               
+ffffffff  __TI_prof_data_size               
+ffffffff  __TI_prof_data_start              
+00000000  __TI_static_base__                
+00002d31  __TI_zero_init                    
+00002449  __aeabi_d2f                       
+00000cff  __aeabi_dadd                      
+000012b5  __aeabi_ddiv                      
+0000160d  __aeabi_dmul                      
+00000cf5  __aeabi_dsub                      
+00002869  __aeabi_f2d                       
+000029f7  __aeabi_i2d                       
+00002269  __aeabi_memclr                    
+00002269  __aeabi_memclr4                   
+00002269  __aeabi_memclr8                   
+00001f19  __aeabi_memcpy                    
+00001f19  __aeabi_memcpy4                   
+00001f19  __aeabi_memcpy8                   
+0000226b  __aeabi_memset                    
+0000226b  __aeabi_memset4                   
+0000226b  __aeabi_memset8                   
+ffffffff  __binit__                         
+ffffffff  __c_args__                        
+UNDEFED   __mpu_init                        
+2000fe00  __stack                           
+20000000  __start___llvm_prf_cnts           
+20000000  __stop___llvm_prf_cnts            
+000028d5  _c_int00_noargs                   
+UNDEFED   _system_post_cinit                
+00002d45  _system_pre_init                  
+00002d49  abort                             
+ffffffff  binit                             
+200004bc  buf_count2                        
+200004c0  buf_count3                        
+00002049  calibration_angle_init            
+20000440  calibration_init_t                
+20000310  coordinate_t                      
+200004c4  count_32                          
+00002ac9  delay_init                        
+00002be1  delay_ms                          
+00002bff  delay_s                           
+000026b9  delay_us                          
+00002711  duoji_init                        
+00002759  duoji_init_2                      
+200004d0  duojipid_1                        
+00002d3d  get_calibration_info              
+000024b9  go_to_center_init                 
+00000b0d  inituart_to_pc                    
+00000000  interruptVectors                  
+200004c8  key                               
+0000058d  main                              
+00001f19  memcpy                            
+00002271  memset                            
+200004f0  mode                              
+20000000  motor                             
+000029c9  motor_init                        
+000000e5  recieveCoordinateData             
+00001175  recieveDataFromJY901S             
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                              
+-------   ----                              
+00000000  __TI_static_base__                
+00000000  interruptVectors                  
+000000e5  recieveCoordinateData             
+00000200  __STACK_SIZE                      
+0000058d  main                              
+000008e9  TA3_N_IRQHandler                  
+000008e9  TA3_N_IRQHandler                  
+00000b0d  inituart_to_pc                    
+00000cf5  __aeabi_dsub                      
+00000cff  __aeabi_dadd                      
+00000eab  ADC14_IRQHandler                  
+00000eab  AES256_IRQHandler                 
+00000eab  BusFault_Handler                  
+00000eab  COMP_E0_IRQHandler                
+00000eab  COMP_E1_IRQHandler                
+00000eab  CS_IRQHandler                     
+00000eab  DMA_ERR_IRQHandler                
+00000eab  DMA_INT0_IRQHandler               
+00000eab  DMA_INT1_IRQHandler               
+00000eab  DMA_INT2_IRQHandler               
+00000eab  DMA_INT3_IRQHandler               
+00000eab  DebugMon_Handler                  
+00000eab  Default_Handler                   
+00000eab  EUSCIB0_IRQHandler                
+00000eab  EUSCIB1_IRQHandler                
+00000eab  EUSCIB2_IRQHandler                
+00000eab  EUSCIB3_IRQHandler                
+00000eab  FLCTL_IRQHandler                  
+00000eab  FPU_IRQHandler                    
+00000eab  HardFault_Handler                 
+00000eab  MemManage_Handler                 
+00000eab  NMI_Handler                       
+00000eab  PCM_IRQHandler                    
+00000eab  PORT2_IRQHandler                  
+00000eab  PORT3_IRQHandler                  
+00000eab  PORT4_IRQHandler                  
+00000eab  PORT5_IRQHandler                  
+00000eab  PORT6_IRQHandler                  
+00000eab  PSS_IRQHandler                    
+00000eab  PendSV_Handler                    
+00000eab  RTC_C_IRQHandler                  
+00000eab  SVC_Handler                       
+00000eab  SysTick_Handler                   
+00000eab  T32_INTC_IRQHandler               
+00000eab  TA0_N_IRQHandler                  
+00000eab  TA1_0_IRQHandler                  
+00000eab  TA1_N_IRQHandler                  
+00000eab  UsageFault_Handler                
+00000eab  WDT_A_IRQHandler                  
+00000ead  TA2_0_IRQHandler                  
+00000ead  TA2_0_IRQHandler                  
+00001175  recieveDataFromJY901S             
+000012b5  __aeabi_ddiv                      
+000013ed  UART_initModule                   
+0000160d  __aeabi_dmul                      
+00001709  CS_getDCOFrequency                
+00001801  OLED_Init                         
+000018ed  CS_startHFXTWithTimeout           
+000019d1  TA2_N_IRQHandler                  
+000019d1  TA2_N_IRQHandler                  
+00001ab5  CS_startLFXTWithTimeout           
+00001c71  TA3_0_IRQHandler                  
+00001c71  TA3_0_IRQHandler                  
+00001d35  SysInit                           
+00001dd9  T32_INT1_IRQHandler               
+00001dd9  T32_INT1_IRQHandler               
+00001e7d  PID_init                          
+00001f19  __aeabi_memcpy                    
+00001f19  __aeabi_memcpy4                   
+00001f19  __aeabi_memcpy8                   
+00001f19  memcpy                            
+00001fb5  SysCtl_A_getTLVInfo               
+00002049  calibration_angle_init            
+000020dd  PORT1_IRQHandler                  
+000020dd  PORT1_IRQHandler                  
+00002269  __aeabi_memclr                    
+00002269  __aeabi_memclr4                   
+00002269  __aeabi_memclr8                   
+0000226b  __aeabi_memset                    
+0000226b  __aeabi_memset4                   
+0000226b  __aeabi_memset8                   
+00002271  memset                            
+000022e5  Send_Byte                         
+0000235d  SystemInit                        
+000023d5  Timer_A_generatePWM               
+00002449  __aeabi_d2f                       
+000024b9  go_to_center_init                 
+00002525  OLED_Clear                        
+0000258f  __TI_decompress_lzss              
+00002659  Tim32_0_Int_Init                  
+000026b9  delay_us                          
+00002711  duoji_init                        
+00002759  duoji_init_2                      
+000027a1  __TI_auto_init_nobinit_nopinit    
+000027e5  OLED_WR_Byte                      
+00002829  GPIO_setAsOutputPin               
+00002869  __aeabi_f2d                       
+000028a1  LED_Init                          
+000028d5  _c_int00_noargs                   
+00002909  CS_clearInterruptFlag             
+00002939  GPIO_getInputPinValue             
+00002969  I2C_Start                         
+00002999  UART_receiveData                  
+000029c9  motor_init                        
+000029f7  __aeabi_i2d                       
+00002a25  TA0_0_IRQHandler                  
+00002a25  TA0_0_IRQHandler                  
+00002a51  CS_getMCLK                        
+00002a79  GPIO_setOutputHighOnPin           
+00002aa1  GPIO_setOutputLowOnPin            
+00002ac9  delay_init                        
+00002af1  I2C_SW_Configuration              
+00002b15  I2C_Stop                          
+00002b39  I2C_WaitAck                       
+00002b5d  Timer_A_getCaptureCompareCount    
+00002b81  CS_setExternalClockSourceFrequency
+00002ba1  EUSCIA1_IRQHandler                
+00002ba1  EUSCIA1_IRQHandler                
+00002bc1  EUSCIA2_IRQHandler                
+00002bc1  EUSCIA2_IRQHandler                
+00002be1  delay_ms                          
+00002bff  delay_s                           
+00002c1d  EUSCIA3_IRQHandler                
+00002c1d  EUSCIA3_IRQHandler                
+00002c39  SysCtl_A_disableNMISource         
+00002c51  SysCtl_A_enableNMISource          
+00002c69  T32_INT2_IRQHandler               
+00002c69  T32_INT2_IRQHandler               
+00002c81  UART_clearInterruptFlag           
+00002c97  CS_startHFXT                      
+00002ca9  EUSCIA0_IRQHandler                
+00002ca9  EUSCIA0_IRQHandler                
+00002cb9  LED_G_Tog                         
+00002cc9  SysCtl_A_getNMISourceStatus       
+00002cd9  CS_startLFXT                      
+00002ce7  __TI_decompress_none              
+00002cf5  LED_B_Off                         
+00002d01  LED_G_Off                         
+00002d0d  LED_RED_Off                       
+00002d19  LED_R_Off                         
+00002d25  Reset_Handler                     
+00002d31  __TI_zero_init                    
+00002d3d  get_calibration_info              
+00002d45  _system_pre_init                  
+00002d49  C$$EXIT                           
+00002d49  abort                             
+00002dc0  __TI_Handler_Table_Base           
+00002dcc  __TI_Handler_Table_Limit          
+00002dd8  __TI_CINIT_Base                   
+00002de8  __TI_CINIT_Limit                  
+20000000  __start___llvm_prf_cnts           
+20000000  __stop___llvm_prf_cnts            
+20000000  motor                             
+20000208  AngleDataBuf2                     
+20000310  coordinate_t                      
+200003b8  CoordinateData                    
+2000043c  Angle                             
+20000440  calibration_init_t                
+20000490  FnValue                           
+200004b8  Angle2                            
+200004bc  buf_count2                        
+200004c0  buf_count3                        
+200004c4  count_32                          
+200004c8  key                               
+200004cc  CenterCoordinatex                 
+200004ce  CenterCoordinatey                 
+200004d0  duojipid_1                        
+200004e8  Coordinatex                       
+200004ec  Coordinatey                       
+200004f0  mode                              
+200004f4  TIMA2_CAP_STA                     
+200004f6  TIMA2_CAP_VAL                     
+2000fe00  __stack                           
+20010000  __STACK_END                       
+4000480c  WDTCTL_SYM                        
+ffffffff  __TI_pprof_out_hndl               
+ffffffff  __TI_prof_data_size               
+ffffffff  __TI_prof_data_start              
+ffffffff  __binit__                         
+ffffffff  __c_args__                        
+ffffffff  binit                             
+UNDEFED   __mpu_init                        
+UNDEFED   _system_post_cinit                
+
+[183 symbols]
