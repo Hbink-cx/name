@@ -71,6 +71,7 @@ int i=0;
 
         }
 
+
             MAP_Timer_A_setCompareValue(TIMER_A1_BASE,TIMER_A_CAPTURECOMPARE_REGISTER_1,885);//中心
                                        delay_s(1);
             MAP_Timer_A_setCompareValue(TIMER_A1_BASE,TIMER_A_CAPTURECOMPARE_REGISTER_3,745);//
